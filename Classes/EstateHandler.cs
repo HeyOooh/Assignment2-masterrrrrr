@@ -1,6 +1,6 @@
 ﻿using Assignment.Enum;
-using Assignment.Interface;
-using Assignment_2.AbstractClasses;
+using Assignment_1.AbstractClasses;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,23 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Assignment_2.Classes
+namespace Assignment_1.Classes
 {
 
     /// <summary>
     /// Class to handle all the logic for the program, contains an ArrayList of estates, a HashSet of ids and methods to manipulate these datastructures.
     /// <author> Agnes Hägnestrand and Andreas Holm</author>
     /// </summary>
-    class ListManager<T> : IListManager<T>
+    class EstateHandler
     {
 
-        private List<T> m_list;
-
-        private int count;
-        // private String[] toStringArray;
-        // private List<string> toStringList;
-
-
+        #region attibutes
         // To handle all the estates
         private ArrayList estates = new ArrayList();
 
@@ -36,31 +30,20 @@ namespace Assignment_2.Classes
 
         // The RichTextBox component in the GUI
         private ListBox listBox1;
+        #endregion
 
 
-        public ListManager()
-        {
-            m_list = new List<T>();
-        }
 
         /// <summary>
         /// Constructor to set up the component RichTextBox
         /// </summary>
         /// <param name="richTxtBx"></param>
-        public ListManager(ListBox listBox1)
+        public EstateHandler(ListBox listBox1)
         {
             this.listBox1 = listBox1;
-            m_list = new List<T>();
         }
 
-
-        public int Count
-        {
-            get { return count; }
-            set { count = value; }
-        }
-
-
+        
 
         /// <summary>
         /// Validates that all the information is filled in correctly and then creates an estate object
@@ -78,7 +61,7 @@ namespace Assignment_2.Classes
         /// <param name="image"></param>
         public void createEstate(string id, LegalForms legalForm, Countries country, string city, string zipCode, string street, Category category, object type, string text, Bitmap image, TypeAll typeAll, bool isModifyingEstate)
         {
-            if (isModifyingEstate)
+            if(isModifyingEstate)
             {
                 Estate oldEstate = GetEstate(id);
                 estates.Remove(oldEstate);
@@ -87,7 +70,7 @@ namespace Assignment_2.Classes
 
             // || !hasChosenImage(image) ?? Maybe remove??
 
-            if (!isIdValid(id) || !uniqueId(id) || !allFieldsFilled(city, zipCode, street, text))
+            if (!isIdValid(id) || !uniqueId(id)  || !allFieldsFilled(city, zipCode, street, text))
             {
                 return;
             }
@@ -96,7 +79,7 @@ namespace Assignment_2.Classes
 
             switch (type)
             {
-
+                
                 case TypeCom.Shop:
                     Shop shop = new Shop(id, text, legalForm, image, address, category, typeAll);
                     estates.Add(shop);
@@ -131,32 +114,79 @@ namespace Assignment_2.Classes
                     break;
             }
 
-            updateTxtWindow();
+            updateTxtWindow(); 
         }
 
-
+        
         /// <summary>
         /// Helper method to fill the estates with 10 estate object to make it easier for the user to test the search
         /// Removes the previously estates in the estates ArrayList
         /// </summary>
-        public void genereateEstates(T[] estates)
+        public void genereateEstates()
         {
-            DeleteAll();
 
-            for(int i = 0; i < estates.Length; i ++)
-            {
-                m_list.Add(estates[i]);
-            }
+        //C: \Users\h_o_l\source\repos\Assignment_2.0\Resources\estate.jpg
+         //Bitmap image = new Bitmap("/Resources/estate.jpg");
+           
+            Address address1 = new Address("Street1", "24010", "Lund", Countries.Sverige);
+            Address address2 = new Address("Street2", "22224", "Malmö", Countries.Sverige);
+            Address address3 = new Address("Street3", "08122", "Ystad", Countries.Sverige);
+
+            Estate shop1= new Shop("0001", "Food", LegalForms.Rental, null, address1, Category.Commercial, TypeAll.Shop);
+            Estate shop2 = new Shop("0002", "Paint", LegalForms.Rental, null, address2, Category.Commercial, TypeAll.Shop);
+            Estate shop3 = new Shop("0003", "Pizza", LegalForms.Ownership, null, address3, Category.Commercial, TypeAll.Shop);
+
+            Estate warehouse1 = new Warehouse("0004", "1000", LegalForms.Ownership, null, address1, Category.Commercial, TypeAll.Warehouse);
+            Estate warehouse2 = new Warehouse("0005", "2000", LegalForms.Rental, null, address1, Category.Commercial, TypeAll.Warehouse);
+            Estate warehouse3 = new Warehouse("0006", "3000", LegalForms.Ownership, null, address2, Category.Commercial, TypeAll.Warehouse);
+
+            Estate villa1 = new Villa("0007", "100", LegalForms.Rental, null, address2, Category.Residential, TypeAll.Villa);
+            Estate villa2 = new Villa("0008", "200", LegalForms.Ownership, null, address3, Category.Residential, TypeAll.Villa);
+            Estate villa3 = new Villa("0009", "300", LegalForms.Rental, null, address3, Category.Residential, TypeAll.Villa);
+
+            deleteAllEstates();
+
+            estates.Add(shop1);
+            estates.Add(shop2);
+            estates.Add(shop3);
+            estates.Add(warehouse1);
+            estates.Add(warehouse2);
+            estates.Add(warehouse3);
+            estates.Add(villa1);
+            estates.Add(villa2);
+            estates.Add(villa3);
+
+            ids.Add(shop1.Id);
+            ids.Add(shop2.Id);
+            ids.Add(shop3.Id);
+            ids.Add(warehouse1.Id);
+            ids.Add(warehouse2.Id);
+            ids.Add(warehouse3.Id);
+            ids.Add(villa1.Id);
+            ids.Add(villa2.Id);
+            ids.Add(villa3.Id);
 
             updateTxtWindow();
         }
 
+        
 
         /// <summary>
         /// Shows all the estates in the estates list
         /// </summary>
         public void showAllEstates()
         {
+            updateTxtWindow();
+        }
+
+
+        /// <summary>
+        /// Deletes all the estates from the estates list
+        /// </summary>
+        public void deleteAllEstates()
+        {
+            estates.Clear();
+            ids.Clear();
             updateTxtWindow();
         }
 
@@ -169,9 +199,9 @@ namespace Assignment_2.Classes
         /// <param name="street"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-        public bool allFieldsFilled(string city, string zipCode, string street, string text)
+        private bool allFieldsFilled(string city, string zipCode, string street, string text)
         {
-            if (city.Equals("") || zipCode.Equals("") || street.Equals("") || text.Equals(""))
+            if(city.Equals("") || zipCode.Equals("") ||street.Equals("") || text.Equals(""))
             {
                 MessageBox.Show("Please fill in all the fields");
                 return false;
@@ -180,7 +210,7 @@ namespace Assignment_2.Classes
             return true;
         }
 
-
+       
 
         /// <summary>
         /// Checks if the user has chosen an image
@@ -189,7 +219,7 @@ namespace Assignment_2.Classes
         /// <returns></returns>
         private bool hasChosenImage(Bitmap image)
         {
-            if (image == null)
+            if(image == null)
             {
                 MessageBox.Show("Please choose a picture");
                 return false;
@@ -204,9 +234,9 @@ namespace Assignment_2.Classes
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool uniqueId(string id)
+        private bool uniqueId(string id)
         {
-            if (ids.Contains(id))
+            if(ids.Contains(id))
             {
                 MessageBox.Show("The Id is already in our register, please choose an unique Id, to se all the Ids browse to the Search/Delete tab");
             }
@@ -233,17 +263,16 @@ namespace Assignment_2.Classes
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool isIdValid(string id)
+        private bool isIdValid(string id)
         {
             int correctIdLenght = 4;
-            if (id.Length != correctIdLenght)
+            if(id.Length != correctIdLenght)
             {
                 MessageBox.Show("The Id you chose is not a valid Id, it should consist of four numbers, eg 1234");
                 return false;
             }
 
-            if (!id.All(char.IsDigit))
-            {
+            if (!id.All(char.IsDigit)){
                 MessageBox.Show("The id must consist of all numbers!");
                 return false;
             }
@@ -253,7 +282,15 @@ namespace Assignment_2.Classes
 
 
 
-   
+        /// <summary>
+        /// Add an estate to the list
+        /// </summary>
+        /// <param name="estate"></param>
+        public void AddEstate(Estate estate)
+        {
+            ids.Add(estate.Id);
+            estates.Add(estate);
+        }
 
 
 
@@ -286,33 +323,17 @@ namespace Assignment_2.Classes
             }
         }
 
-        // Kolla igenom alla estates och ändra till m_list :) 
-
-        //__________________________________________________________________________
-        //HAR TAGIT BORT ID SOM PARAMETER FÖR DELETE SKA ENDAST HA OBJECT FÖR GENERICS
-        //__________________________________________________________________________
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="id"></param>
-        public void Delete(T type)
-        {
-            estates.Remove(type);
-
-            // ids.Remove(id);
-        }
 
 
         /// <summary>
         /// Updates the list of estates is the RichTextBox window in the Search/Delete tab
         /// </summary>
-        public void updateTxtWindow()
+        private void updateTxtWindow()
         {
             listBox1.Items.Clear();
             string estatesList = "";
 
-            foreach (T e in m_list)
+            foreach(Estate e in estates)
             {
                 //estatesList += e.ToString() + "\n";
                 listBox1.Items.Add(e.ToString() + "\n");
@@ -320,36 +341,21 @@ namespace Assignment_2.Classes
 
             listBox1.Items.Add(estatesList);
         }
-
-
-        /// <summary>
-        /// Save to a file
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="legalForm"></param>
-        /// <param name="country"></param>
-        /// <param name="city"></param>
-        /// <param name="zipCode"></param>
-        /// <param name="street"></param>
-        /// <param name="category"></param>
-        /// <param name="type"></param>
-        /// <param name="text"></param>
-        /// <param name="typeAll"></param>
         public void SaveFile(string id, LegalForms legalForm, Countries country, string city, string zipCode, string street, Category category, object type, string text, TypeAll typeAll)
         {
             String msg = "Id:" + id + "Legalform:" + legalForm + "Country:" + country + "City:" + city + "zipcode:" + zipCode + "Street:" + street + " Category:" + category + "Ttype:" + type + "Text:" + text + "Type:" + typeAll;
             String txt = "\file.txt";
 
-            //   using (StringReader reader = new StringReader(msg.ToString())
-            // {
-            // string readText = await reader.ReadToEndAsync
-            //   }
-            //  FileStream fileStream = new FileStream(txt, FileMode.Create, FileAccess.Write);
-            // StreamWriter streamWriter = new StreamWriter(fileStream);
-            // streamWriter.BaseStream.Seek(0, SeekOrigin.End);
-            // streamWriter.Write(msg);
-            // streamWriter.Flush();
-            // streamWriter.Close();
+         //   using (StringReader reader = new StringReader(msg.ToString())
+           // {
+               // string readText = await reader.ReadToEndAsync
+         //   }
+          //  FileStream fileStream = new FileStream(txt, FileMode.Create, FileAccess.Write);
+           // StreamWriter streamWriter = new StreamWriter(fileStream);
+           // streamWriter.BaseStream.Seek(0, SeekOrigin.End);
+           // streamWriter.Write(msg);
+           // streamWriter.Flush();
+           // streamWriter.Close();
         }
 
 
@@ -382,18 +388,18 @@ namespace Assignment_2.Classes
         }
 
 
-        /*
+
         /// <summary>
         /// Sets the string in RichTextBox component to all the Estates that has the searched type and city
         /// </summary>
         /// <param name="type"></param>
         /// <param name="city"></param>
         /// <returns></returns>
-
+        
         public void SearchEstate(TypeAll type, string city)
         {
             string estatesList = "";
-            foreach (T e in m_list)
+            foreach (Estate e in estates)
             {
                 if (e.TypeAll.Equals(type) && e.Address.City.Equals(city))
                 {
@@ -404,8 +410,6 @@ namespace Assignment_2.Classes
 
             listBox1.Items.Add(estatesList);
         }
-
-        */
 
 
 
@@ -427,13 +431,12 @@ namespace Assignment_2.Classes
         public void UpdateEstatesFields(ComboBox comboBoxLegalForm, ComboBox comboBoxCountry, ComboBox comboBoxCategory, ComboBox comboBoxType, TextBox textchange, TextBox textcity, TextBox textzip, TextBox textStreet, TextBox textUnique, string changeText, TextBox textId, PictureBox pictureBoxImage)
         {
 
-            if (!ids.Contains(changeText))
+            if(!ids.Contains(changeText))
             {
                 MessageBox.Show($"There is no Estate object in the hashSet that has the id {changeText}");
                 return;
 
-            }
-            else
+            } else
             {
                 foreach (Estate e in estates)
                 {
@@ -453,7 +456,7 @@ namespace Assignment_2.Classes
 
                         textUnique.Text = e.UniqueAttribute;
 
-                        if (e.Image != null)
+                        if(e.Image != null)
                         {
                             pictureBoxImage.Image = e.Image;
                         }
@@ -463,92 +466,5 @@ namespace Assignment_2.Classes
                 }
             }
         }
-
-        // ALLA DESSA 
-
-        /// <summary>
-        /// Adds an estate to the List and updates the ListBox
-        /// TODO add false return???
-        /// </summary>
-        /// <param name="aType"></param>
-        /// <returns></returns>
-        public bool Add(T aType)
-        { 
-            m_list.Add(aType);
-            updateTxtWindow();
-            return true;
-        }
-
-        public bool BinaryDeSerialize(string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool BinarySerialize(string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool ChangeAt(T aType, int anIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool CheckIndex(int index)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /// <summary>
-        /// Deletes all the objects in the m_list and updates the ListBox with the empty list
-        /// </summary>
-        public void DeleteAll()
-        {
-            m_list.Clear();
-            updateTxtWindow();
-        }
-
-
-        /// <summary>
-        /// Removes an object from the m_list at a given index and updates the ListBox
-        /// </summary>
-        /// <param name="anIndex"></param>
-        /// <returns></returns>
-        public bool DeleteAt(int anIndex)
-        {
-            MessageBox.Show(anIndex.ToString());
-            m_list.RemoveAt(anIndex);
-            updateTxtWindow();
-            return true;
-        }
-
-
-        /// <summary>
-        /// Returns the element form the m_list at the given index
-        /// </summary>
-        /// <param name="anIndex"></param>
-        /// <returns></returns>
-        public T GetAt(int anIndex)
-        {
-            return m_list.ElementAt(anIndex);
-        }
-
-        public string[] ToStringArray()
-        {
-
-            throw new NotImplementedException();
-        }
-
-        public List<string> ToStringList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool XMLSerialize(string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

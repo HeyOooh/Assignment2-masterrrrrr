@@ -1,4 +1,6 @@
-﻿namespace Assignment_2._0
+﻿using System;
+
+namespace Assignment_2._0
 {
     partial class GUI
     {
@@ -34,17 +36,14 @@
             this.btnCreateEstate = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.textBoxChangeEstate = new System.Windows.Forms.TextBox();
-            this.lblChangeEstate = new System.Windows.Forms.Label();
-            this.btnChangeEstate = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.btnChooseImage = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.lblDynamicTxt1 = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
@@ -73,9 +72,7 @@
             this.btnShowAll = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.lblIdToDelete = new System.Windows.Forms.Label();
             this.lblDeleteEstates = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -94,6 +91,9 @@
             this.importFromXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitAltXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChangeEstate = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblChangeEstate = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -108,6 +108,7 @@
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -120,7 +121,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(10, 5);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(977, 593);
+            this.tabControl.Size = new System.Drawing.Size(977, 636);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -134,7 +135,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(969, 557);
+            this.tabPage1.Size = new System.Drawing.Size(969, 600);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Create/Change";
             // 
@@ -165,9 +166,6 @@
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSaveChanges);
-            this.panel6.Controls.Add(this.textBoxChangeEstate);
-            this.panel6.Controls.Add(this.lblChangeEstate);
-            this.panel6.Controls.Add(this.btnChangeEstate);
             this.panel6.Location = new System.Drawing.Point(473, 391);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
@@ -185,37 +183,6 @@
             this.btnSaveChanges.Text = "SAVE CHANGES";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
-            // 
-            // textBoxChangeEstate
-            // 
-            this.textBoxChangeEstate.Location = new System.Drawing.Point(75, 39);
-            this.textBoxChangeEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxChangeEstate.Name = "textBoxChangeEstate";
-            this.textBoxChangeEstate.Size = new System.Drawing.Size(149, 22);
-            this.textBoxChangeEstate.TabIndex = 3;
-            // 
-            // lblChangeEstate
-            // 
-            this.lblChangeEstate.AutoSize = true;
-            this.lblChangeEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeEstate.Location = new System.Drawing.Point(60, 17);
-            this.lblChangeEstate.Name = "lblChangeEstate";
-            this.lblChangeEstate.Size = new System.Drawing.Size(175, 20);
-            this.lblChangeEstate.TabIndex = 2;
-            this.lblChangeEstate.Text = "Change estate with id:";
-            // 
-            // btnChangeEstate
-            // 
-            this.btnChangeEstate.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnChangeEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeEstate.Location = new System.Drawing.Point(64, 81);
-            this.btnChangeEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnChangeEstate.Name = "btnChangeEstate";
-            this.btnChangeEstate.Size = new System.Drawing.Size(180, 50);
-            this.btnChangeEstate.TabIndex = 1;
-            this.btnChangeEstate.Text = "CHANGE ESTATE";
-            this.btnChangeEstate.UseVisualStyleBackColor = false;
-            this.btnChangeEstate.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel5
             // 
@@ -268,8 +235,8 @@
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.textBox6);
-            this.panel4.Controls.Add(this.comboBox4);
-            this.panel4.Controls.Add(this.comboBox3);
+            this.panel4.Controls.Add(this.comboBoxType);
+            this.panel4.Controls.Add(this.comboBoxCategory);
             this.panel4.Controls.Add(this.lblDynamicTxt1);
             this.panel4.Controls.Add(this.lblType);
             this.panel4.Controls.Add(this.lblCategory);
@@ -288,25 +255,25 @@
             this.textBox6.TabIndex = 6;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
-            // comboBox4
+            // comboBoxType
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(157, 74);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(160, 24);
-            this.comboBox4.TabIndex = 5;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(157, 74);
+            this.comboBoxType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxType.TabIndex = 5;
+            this.comboBoxType.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
-            // comboBox3
+            // comboBoxCategory
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(157, 44);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(160, 24);
-            this.comboBox3.TabIndex = 4;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(157, 44);
+            this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxCategory.TabIndex = 4;
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // lblDynamicTxt1
             // 
@@ -494,6 +461,7 @@
             // 
             // tabSearchDelete
             // 
+            this.tabSearchDelete.Controls.Add(this.panel10);
             this.tabSearchDelete.Controls.Add(this.listBox1);
             this.tabSearchDelete.Controls.Add(this.lblGenerate);
             this.tabSearchDelete.Controls.Add(this.lblRemoveAll);
@@ -508,7 +476,7 @@
             this.tabSearchDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabSearchDelete.Name = "tabSearchDelete";
             this.tabSearchDelete.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabSearchDelete.Size = new System.Drawing.Size(969, 557);
+            this.tabSearchDelete.Size = new System.Drawing.Size(969, 600);
             this.tabSearchDelete.TabIndex = 1;
             this.tabSearchDelete.Text = "Search/Delete";
             this.tabSearchDelete.UseVisualStyleBackColor = true;
@@ -518,7 +486,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(17, 54);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(933, 244);
             this.listBox1.TabIndex = 10;
@@ -604,29 +572,19 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.textBox8);
             this.panel9.Controls.Add(this.btnDelete);
-            this.panel9.Controls.Add(this.lblIdToDelete);
             this.panel9.Controls.Add(this.lblDeleteEstates);
-            this.panel9.Location = new System.Drawing.Point(511, 400);
+            this.panel9.Location = new System.Drawing.Point(341, 401);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(330, 173);
+            this.panel9.Size = new System.Drawing.Size(300, 173);
             this.panel9.TabIndex = 2;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(131, 63);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(160, 22);
-            this.textBox8.TabIndex = 3;
             // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(79, 114);
+            this.btnDelete.Location = new System.Drawing.Point(55, 114);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(180, 50);
@@ -635,26 +593,16 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // lblIdToDelete
-            // 
-            this.lblIdToDelete.AutoSize = true;
-            this.lblIdToDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdToDelete.Location = new System.Drawing.Point(12, 63);
-            this.lblIdToDelete.Name = "lblIdToDelete";
-            this.lblIdToDelete.Size = new System.Drawing.Size(100, 20);
-            this.lblIdToDelete.TabIndex = 1;
-            this.lblIdToDelete.Text = "Id To Delete";
-            this.lblIdToDelete.Click += new System.EventHandler(this.label17_Click);
-            // 
             // lblDeleteEstates
             // 
             this.lblDeleteEstates.AutoSize = true;
             this.lblDeleteEstates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteEstates.Location = new System.Drawing.Point(97, 16);
+            this.lblDeleteEstates.Location = new System.Drawing.Point(38, 12);
             this.lblDeleteEstates.Name = "lblDeleteEstates";
-            this.lblDeleteEstates.Size = new System.Drawing.Size(124, 20);
+            this.lblDeleteEstates.Size = new System.Drawing.Size(225, 20);
             this.lblDeleteEstates.TabIndex = 0;
-            this.lblDeleteEstates.Text = "Delete Estate";
+            this.lblDeleteEstates.Text = "Delete Highlighted Estate";
+            this.lblDeleteEstates.Click += new System.EventHandler(this.lblDeleteEstates_Click);
             // 
             // panel8
             // 
@@ -665,16 +613,16 @@
             this.panel8.Controls.Add(this.lblSearchCity);
             this.panel8.Controls.Add(this.lblSearchType);
             this.panel8.Controls.Add(this.lblSearchEstates);
-            this.panel8.Location = new System.Drawing.Point(59, 400);
+            this.panel8.Location = new System.Drawing.Point(17, 401);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(330, 173);
+            this.panel8.Size = new System.Drawing.Size(300, 173);
             this.panel8.TabIndex = 1;
             // 
             // comboBox5
             // 
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(112, 47);
+            this.comboBox5.Location = new System.Drawing.Point(81, 47);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(160, 24);
@@ -683,7 +631,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(112, 78);
+            this.textBox9.Location = new System.Drawing.Point(81, 79);
             this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(160, 22);
@@ -693,7 +641,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(81, 114);
+            this.btnSearch.Location = new System.Drawing.Point(58, 114);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(180, 50);
@@ -706,7 +654,7 @@
             // 
             this.lblSearchCity.AutoSize = true;
             this.lblSearchCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchCity.Location = new System.Drawing.Point(43, 79);
+            this.lblSearchCity.Location = new System.Drawing.Point(25, 79);
             this.lblSearchCity.Name = "lblSearchCity";
             this.lblSearchCity.Size = new System.Drawing.Size(38, 20);
             this.lblSearchCity.TabIndex = 2;
@@ -716,7 +664,7 @@
             // 
             this.lblSearchType.AutoSize = true;
             this.lblSearchType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchType.Location = new System.Drawing.Point(43, 47);
+            this.lblSearchType.Location = new System.Drawing.Point(25, 47);
             this.lblSearchType.Name = "lblSearchType";
             this.lblSearchType.Size = new System.Drawing.Size(45, 20);
             this.lblSearchType.TabIndex = 1;
@@ -727,7 +675,7 @@
             // 
             this.lblSearchEstates.AutoSize = true;
             this.lblSearchEstates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearchEstates.Location = new System.Drawing.Point(95, 12);
+            this.lblSearchEstates.Location = new System.Drawing.Point(77, 12);
             this.lblSearchEstates.Name = "lblSearchEstates";
             this.lblSearchEstates.Size = new System.Drawing.Size(128, 20);
             this.lblSearchEstates.TabIndex = 0;
@@ -741,7 +689,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(979, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -761,26 +709,26 @@
             // newCtrlNToolStripMenuItem
             // 
             this.newCtrlNToolStripMenuItem.Name = "newCtrlNToolStripMenuItem";
-            this.newCtrlNToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newCtrlNToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.newCtrlNToolStripMenuItem.Text = "New        Ctrl+N";
             // 
             // openCtrlOToolStripMenuItem
             // 
             this.openCtrlOToolStripMenuItem.Name = "openCtrlOToolStripMenuItem";
-            this.openCtrlOToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openCtrlOToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.openCtrlOToolStripMenuItem.Text = "Open...    Ctrl+O";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.saveToolStripMenuItem.Text = "Save         Ctrl+S";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.saveAsToolStripMenuItem.Text = "Save as..  ";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -790,7 +738,7 @@
             this.importFromXMLFileToolStripMenuItem,
             this.exportToXMLFileToolStripMenuItem});
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
             // importFromXMLFileToolStripMenuItem
@@ -808,14 +756,47 @@
             // exitAltXToolStripMenuItem
             // 
             this.exitAltXToolStripMenuItem.Name = "exitAltXToolStripMenuItem";
-            this.exitAltXToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitAltXToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.exitAltXToolStripMenuItem.Text = "Exit          Alt+X";
+            // 
+            // btnChangeEstate
+            // 
+            this.btnChangeEstate.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnChangeEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeEstate.Location = new System.Drawing.Point(71, 115);
+            this.btnChangeEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChangeEstate.Name = "btnChangeEstate";
+            this.btnChangeEstate.Size = new System.Drawing.Size(180, 50);
+            this.btnChangeEstate.TabIndex = 11;
+            this.btnChangeEstate.Text = "CHANGE ESTATE";
+            this.btnChangeEstate.UseVisualStyleBackColor = false;
+            this.btnChangeEstate.Click += new System.EventHandler(this.btnChangeEstate_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.lblChangeEstate);
+            this.panel10.Controls.Add(this.btnChangeEstate);
+            this.panel10.Location = new System.Drawing.Point(663, 401);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(300, 173);
+            this.panel10.TabIndex = 12;
+            // 
+            // lblChangeEstate
+            // 
+            this.lblChangeEstate.AutoSize = true;
+            this.lblChangeEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeEstate.Location = new System.Drawing.Point(46, 13);
+            this.lblChangeEstate.Name = "lblChangeEstate";
+            this.lblChangeEstate.Size = new System.Drawing.Size(217, 20);
+            this.lblChangeEstate.TabIndex = 12;
+            this.lblChangeEstate.Text = "Change highlisted estate";
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 617);
+            this.ClientSize = new System.Drawing.Size(983, 664);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -825,7 +806,6 @@
             this.tabPage1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -843,9 +823,23 @@
             this.panel8.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        // GENERERAD METOD SOM SKA TAS BORT?
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        // GENERERAD METOD SOM SKA TAS BORT?
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -855,9 +849,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnCreateEstate;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBoxChangeEstate;
-        private System.Windows.Forms.Label lblChangeEstate;
-        private System.Windows.Forms.Button btnChangeEstate;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBoxImage;
         private System.Windows.Forms.Button btnChooseImage;
@@ -879,15 +870,13 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.Label lblDynamicTxt1;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label lblIdToDelete;
         private System.Windows.Forms.Label lblDeleteEstates;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.ComboBox comboBox5;
@@ -916,6 +905,9 @@
         private System.Windows.Forms.ToolStripMenuItem importFromXMLFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToXMLFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitAltXToolStripMenuItem;
+        private System.Windows.Forms.Button btnChangeEstate;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label lblChangeEstate;
     }
 }
 
