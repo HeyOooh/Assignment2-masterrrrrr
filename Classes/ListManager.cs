@@ -1,12 +1,14 @@
 ﻿using Assignment.Enum;
 using Assignment.Interface;
 using Assignment_2.AbstractClasses;
+using Assignment_2.Classes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -58,80 +60,6 @@ namespace Assignment_2.Classes
         {
             get { return count; }
             set { count = value; }
-        }
-
-
-
-        /// <summary>
-        /// Validates that all the information is filled in correctly and then creates an estate object
-        /// and puts it into the estates list.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="legalForm"></param>
-        /// <param name="country"></param>
-        /// <param name="city"></param>
-        /// <param name="zipCode"></param>
-        /// <param name="street"></param>
-        /// <param name="category"></param>
-        /// <param name="type"></param>
-        /// <param name="text"></param>
-        /// <param name="image"></param>
-        public void createEstate(string id, LegalForms legalForm, Countries country, string city, string zipCode, string street, Category category, object type, string text, Bitmap image, TypeAll typeAll, bool isModifyingEstate)
-        {
-            if (isModifyingEstate)
-            {
-                Estate oldEstate = GetEstate(id);
-                estates.Remove(oldEstate);
-                ids.Remove(id);
-            }
-
-            // || !hasChosenImage(image) ?? Maybe remove??
-
-            if (!isIdValid(id) || !uniqueId(id) || !allFieldsFilled(city, zipCode, street, text))
-            {
-                return;
-            }
-
-            Address address = new Address(street, zipCode, city, country);
-
-            switch (type)
-            {
-
-                case TypeCom.Shop:
-                    Shop shop = new Shop(id, text, legalForm, image, address, category, typeAll);
-                    estates.Add(shop);
-                    ids.Add(id);
-                    break;
-                case TypeCom.Warehouse:
-                    Estate warehouse = new Warehouse(id, text, legalForm, image, address, category, typeAll);
-                    estates.Add(warehouse);
-                    ids.Add(id);
-                    break;
-                case TypeRes.Apartment:
-                    Estate apartment = new Apartment(id, text, legalForm, image, address, category, typeAll);
-                    estates.Add(apartment);
-                    ids.Add(id);
-                    break;
-                case TypeRes.House:
-                    Estate house = new House(id, text, legalForm, image, address, category, typeAll);
-                    estates.Add(house);
-                    ids.Add(id);
-                    break;
-                case TypeRes.Townhouse:
-                    Estate townhouse = new Townhouse(id, text, legalForm, image, address, category, typeAll);
-                    estates.Add(townhouse);
-                    ids.Add(id);
-                    break;
-                case TypeRes.Villa:
-                    Estate villa = new Villa(id, text, legalForm, image, address, category, typeAll);
-                    estates.Add(villa);
-                    ids.Add(id);
-                    break;
-                default:
-                    break;
-            }
-
-            updateTxtWindow();
         }
 
 
@@ -224,6 +152,8 @@ namespace Assignment_2.Classes
         public bool containsId(string id)
         {
             return ids.Contains(id);
+
+            
         }
 
 
@@ -252,45 +182,6 @@ namespace Assignment_2.Classes
         }
 
 
-
-   
-
-
-
-        /// <summary>
-        /// Deletes the Estate object with the given id, if the Estate is not present, 
-        /// return null and print out a message to the user.
-        /// </summary>
-        /// <param name="id"></param>
-        public void DeleteEstate(string id)
-        {
-
-            // Check to se if the given id is present in the ids set
-            if (!ids.Contains(id))
-            {
-                MessageBox.Show($"There is no Estate object in the hashSet that has the id {id}");
-                return;
-            }
-
-            // Removes the estate with the given id
-            foreach (Estate e in estates)
-            {
-                if (e.Id == id)
-                {
-                    estates.Remove(e);
-                    ids.Remove(id);
-                    updateTxtWindow();
-                    MessageBox.Show($"Estate with the id {id} was successfully deleted");
-                    return;
-                }
-            }
-        }
-
-        // Kolla igenom alla estates och ändra till m_list :) 
-
-        //__________________________________________________________________________
-        //HAR TAGIT BORT ID SOM PARAMETER FÖR DELETE SKA ENDAST HA OBJECT FÖR GENERICS
-        //__________________________________________________________________________
         /// <summary>
         /// 
         /// </summary>
@@ -298,14 +189,14 @@ namespace Assignment_2.Classes
         /// <param name="id"></param>
         public void Delete(T type)
         {
-            estates.Remove(type);
+            m_list.Remove(type);
 
             // ids.Remove(id);
         }
 
 
         /// <summary>
-        /// Updates the list of estates is the RichTextBox window in the Search/Delete tab
+        /// Updates the list of estates is the ListBox window in the Search/Delete tab
         /// </summary>
         public void updateTxtWindow()
         {
@@ -314,7 +205,6 @@ namespace Assignment_2.Classes
 
             foreach (T e in m_list)
             {
-                //estatesList += e.ToString() + "\n";
                 listBox1.Items.Add(e.ToString() + "\n");
             }
 
@@ -381,24 +271,31 @@ namespace Assignment_2.Classes
             return null;
         }
 
-
-        /*
+        
         /// <summary>
-        /// Sets the string in RichTextBox component to all the Estates that has the searched type and city
+        /// Sets the string in ListBox component to all the Estates that has the searched type and city
         /// </summary>
         /// <param name="type"></param>
         /// <param name="city"></param>
         /// <returns></returns>
+        /// 
 
+        
+         /*
+        
         public void SearchEstate(TypeAll type, string city)
         {
             string estatesList = "";
+            // m_list den generiska listan som innehåller typen T,
+            // Men som egentligen innehåller Estate
             foreach (T e in m_list)
             {
+                
+                // TypeAll och Address är saker som jag vill nå i Estate,
+                // men det går inte för att T inte är Estate :/ 
                 if (e.TypeAll.Equals(type) && e.Address.City.Equals(city))
                 {
                     estatesList += e.ToString() + "\n";
-
                 }
             }
 
@@ -407,6 +304,7 @@ namespace Assignment_2.Classes
 
         */
 
+        
 
 
         /// <summary>
@@ -426,20 +324,10 @@ namespace Assignment_2.Classes
         /// <param name="pictureBoxImage"></param>
         public void UpdateEstatesFields(ComboBox comboBoxLegalForm, ComboBox comboBoxCountry, ComboBox comboBoxCategory, ComboBox comboBoxType, TextBox textchange, TextBox textcity, TextBox textzip, TextBox textStreet, TextBox textUnique, string changeText, TextBox textId, PictureBox pictureBoxImage)
         {
-
-            if (!ids.Contains(changeText))
-            {
-                MessageBox.Show($"There is no Estate object in the hashSet that has the id {changeText}");
-                return;
-
-            }
-            else
-            {
                 foreach (Estate e in estates)
                 {
                     if (e.Id == changeText)
                     {
-
                         textId.Text = changeText;
                         comboBoxLegalForm.SelectedItem = e.LegalForm;
                         comboBoxCountry.SelectedItem = e.Address.Country;
@@ -449,7 +337,6 @@ namespace Assignment_2.Classes
 
                         comboBoxCategory.SelectedItem = e.Category;
                         comboBoxType.SelectedItem = e.getType();
-
 
                         textUnique.Text = e.UniqueAttribute;
 
@@ -461,10 +348,8 @@ namespace Assignment_2.Classes
                         return;
                     }
                 }
-            }
         }
 
-        // ALLA DESSA 
 
         /// <summary>
         /// Adds an estate to the List and updates the ListBox
@@ -486,7 +371,26 @@ namespace Assignment_2.Classes
 
         public bool BinarySerialize(string fileName)
         {
-            throw new NotImplementedException();
+            bool bOK = true;
+            FileStream fileObj = null;
+            try
+            {
+                //Steps in serializing an object
+                fileObj = new FileStream(fileName, FileMode.Create);
+                BinaryFormatter binFormatter = new BinaryFormatter();
+                binFormatter.Serialize(fileObj, m_list);
+            }
+            catch //no parameter - catch avoids exception throwing but no action is taken here 
+            {
+                bOK = false;
+            }
+            finally
+            {
+                if (fileObj != null)
+                    fileObj.Close();
+
+            }
+            return bOK;
         }
 
         public bool ChangeAt(T aType, int anIndex)
@@ -542,7 +446,15 @@ namespace Assignment_2.Classes
 
         public List<string> ToStringList()
         {
-            throw new NotImplementedException();
+            List<string> list = new List<string>();
+
+            foreach(T type in m_list)
+            {
+                list.Add(type.ToString());
+            }
+
+            return list;
+
         }
 
         public bool XMLSerialize(string fileName)

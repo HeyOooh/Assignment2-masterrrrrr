@@ -35,6 +35,8 @@ namespace Assignment_2._0
         {
             InitializeComponent();
 
+            listBox1.item
+
             btnSaveChanges.Enabled = false;
             estateManager = new EstateManager(listBox1);
             comboBoxCountry.DataSource = Countries.GetValues(typeof(Countries));
@@ -53,43 +55,6 @@ namespace Assignment_2._0
         {
 
         }
-
-        /*
-        /// <summary> BTN CHANGE ESTATE!!!!!
-        /// If the the id is in the ids HashSet this method updates the text fields, image and comboboxes with
-        /// the values from the estate with that id
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-
-           // string changeEstatetext = textBoxChangeEstate.Text;
-           //  estateManager.UpdateEstatesFields(comboBoxLegalForm, comboBoxCountry, comboBoxCategory, comboBoxType, textBoxChangeEstate, textBoxCity, textBoxZipCode, textBoxStreet, textBox6, changeEstatetext, textId, pictureBoxImage);
-            
-            if(estateManager.containsId(changeEstatetext))
-            {
-                comboBox4_SelectedIndexChanged(sender, e);
-                
-                // Enabling and disabling buttons to hinder the user to press buttons that should not be pressed
-                textId.ReadOnly = true;
-                btnCreateEstate.Enabled = false;
-                btnChangeEstate.Enabled = false;
-                btnSaveChanges.Enabled = true;
-                btnDeleteAll.Enabled = false;
-                btnGenerateEstates.Enabled = false;
-                btnSearch.Enabled = false;
-                btnShowAll.Enabled = false;
-                btnDelete.Enabled = false;
-
-                btnSaveChanges.BackColor = Color.FromArgb(140, 135, 222);
-                btnCreateEstate.BackColor = Color.FromArgb(168, 165, 209);
-                btnChangeEstate.BackColor = Color.FromArgb(168, 165, 209);
-            }
-        }
-
-        */
 
 
         private void label15_Click(object sender, EventArgs e)
@@ -196,72 +161,9 @@ namespace Assignment_2._0
             estateManager.Add(estate);
         }
 
-        
-        /// <summary>
-        /// Validates that all the information is filled in correctly and then creates an estate object
-        /// and puts it into the estates list.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="legalForm"></param>
-        /// <param name="country"></param>
-        /// <param name="city"></param>
-        /// <param name="zipCode"></param>
-        /// <param name="street"></param>
-        /// <param name="category"></param>
-        /// <param name="type"></param>
-        /// <param name="text"></param>
-        /// <param name="image"></param>
-     /*   public void btnCreateEstate_Click(string id, LegalForms legalForm, Countries country, string city, string zipCode, string street, Category category, object type, string text, Bitmap image, TypeAll typeAll, bool isModifyingEstate)
-        {
-            if (isModifyingEstate)
-            {
-                Estate oldEstate = estateManager.GetEstate(id);
-                estateManager.Delete(oldEstate, id);
-            }
-
-            // || !hasChosenImage(image) ?? Maybe remove??
-
-            if (!estateManager.isIdValid(id) || !estateManager.uniqueId(id) || !estateManager.allFieldsFilled(city, zipCode, street, text))
-            {
-                return;
-            }
-
-            Address address = new Address(street, zipCode, city, country);
-            Estate estate = null;
-
-            switch (type)
-            {
-                case TypeCom.Shop:
-                    estate = new Shop(id, text, legalForm, image, address, category, typeAll);
-                    break;
-                case TypeCom.Warehouse:
-                    estate = new Warehouse(id, text, legalForm, image, address, category, typeAll);
-                    break;
-                case TypeRes.Apartment:
-                    estate = new Apartment(id, text, legalForm, image, address, category, typeAll);
-                    break;
-                case TypeRes.House:
-                    estate = new House(id, text, legalForm, image, address, category, typeAll);
-                    break;
-                case TypeRes.Townhouse:
-                    estate = new Townhouse(id, text, legalForm, image, address, category, typeAll);
-                    break;
-                case TypeRes.Villa:
-                    estate = new Villa(id, text, legalForm, image, address, category, typeAll);
-                    break;
-                default:
-                    break;
-            }
-
-            estateManager.Add(estate);
-        }
-
-        */
-
 
         private void comboBoxLegalForm_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
 
@@ -340,12 +242,11 @@ namespace Assignment_2._0
         /// <param name="e"></param>
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-
         }
 
 
         /// <summary>
-        /// When the delete button is clicked
+        /// Deletes the highlighted estate
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -355,33 +256,6 @@ namespace Assignment_2._0
             estateManager.DeleteAt(indexToDelete);
         }
 
-        // DeleteAt(int anIndex)
-
-        /*
-
-        /// <summary>
-        /// When the search button is clicked
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void btnSearch_Click_1(object sender, EventArgs e)
-        {
-            TypeAll typeAll = (TypeAll)comboBox5.SelectedItem;
-            string city = textBox9.Text;
-            estateManager.SearchEstate(typeAll, city);
-        }
-
-
-        /// <summary>
-        /// Shows all the estates in the estates ArrayList
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnShowAll_Click(object sender, EventArgs e)
-        {
-            estateManager.showAllEstates();
-       */
 
 
         /// <summary>
@@ -425,6 +299,8 @@ namespace Assignment_2._0
         }
 
 
+
+        
         /// <summary>
         /// If the user clicks the save changes button
         /// </summary>
@@ -432,6 +308,8 @@ namespace Assignment_2._0
         /// <param name="e"></param>
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
+        }
+        /*
             string id = textId.Text;
             LegalForms legalForm = (LegalForms)comboBoxLegalForm.SelectedItem;
             Countries country = (Countries)comboBoxCountry.SelectedItem;
@@ -453,13 +331,15 @@ namespace Assignment_2._0
             btnDeleteAll.Enabled = true;
             btnGenerateEstates.Enabled = true;
             btnSearch.Enabled = true;
-            btnShowAll.Enabled = true;
+           // btnShowAll.Enabled = true;
             btnDelete.Enabled = true;
 
             btnSaveChanges.BackColor = Color.FromArgb(168, 165, 209);
             btnChangeEstate.BackColor = Color.FromArgb(140, 135, 222);
             btnCreateEstate.BackColor = Color.FromArgb(140, 135, 222);
         }
+
+        */
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -472,30 +352,14 @@ namespace Assignment_2._0
 
         private async void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // char msg = "Id:" + id + "Legalform:" + legalForm + "Country:" + country + "City:" + city + "zipcode:" + zipCode + "Street:" + street + " Category:" + category + "Ttype:" + type + "Text:" + text + "Type:" + typeAll;
-            string tmpStr = "";
-            foreach(var item in listBox1.SelectedItems)
-            {
-                tmpStr += listBox1.GetItemText(item.ToString()) + "\n";
-            }
-            using (SaveFileDialog ofd = new SaveFileDialog() { Filter= "Text files (*.txt)|*.txt|All files (*.*)|*.*", ValidateNames = true})
-            {
-                if(ofd.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        using (StreamWriter sr = new StreamWriter(ofd.FileName))
-                        {
-                            await sr.WriteLineAsync(tmpStr);
-                            MessageBox.Show("Successfully saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        }
-                    }
-                    catch(Exception eo)
-                    {
-                        Console.WriteLine("The file could not be read:");
-                        Console.WriteLine(eo.Message);
-                    }
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Text files (.txt)|.txt|All files (.)|*.*", ValidateNames = true })
+            {
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = sfd.FileName;
+                    estateManager.BinarySerialize(fileName);
                 }
             }
         }
@@ -505,7 +369,41 @@ namespace Assignment_2._0
 
         }
 
+
+        /// <summary>
+        /// If the user presses the CHANGE ESTATE button
+        /// Updates all the textFields, comboBoxes with the correct data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChangeEstate_Click(object sender, EventArgs e)
+        {
+                comboBox4_SelectedIndexChanged(sender, e);
+
+                // Enabling and disabling buttons to hinder the user to press buttons that should not be pressed
+                textId.ReadOnly = true;
+                btnCreateEstate.Enabled = false;
+                btnChangeEstate.Enabled = false;
+                btnSaveChanges.Enabled = true;
+                btnDeleteAll.Enabled = false;
+                btnGenerateEstates.Enabled = false;
+                btnSearch.Enabled = false;
+                btnShowAll.Enabled = false;
+                btnDelete.Enabled = false;
+
+                btnSaveChanges.BackColor = Color.FromArgb(140, 135, 222);
+                btnCreateEstate.BackColor = Color.FromArgb(168, 165, 209);
+                btnChangeEstate.BackColor = Color.FromArgb(168, 165, 209);
+
+            
+        }
+
+        private void btnShowAll_Click_1(object sender, EventArgs e)
+        {
+            estateManager.showAllEstates();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
 
         }
