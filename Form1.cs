@@ -35,7 +35,6 @@ namespace Assignment_2._0
         {
             InitializeComponent();
 
-            listBox1.item
 
             btnSaveChanges.Enabled = false;
             estateManager = new EstateManager(listBox1);
