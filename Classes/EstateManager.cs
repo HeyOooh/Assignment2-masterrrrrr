@@ -13,5 +13,6 @@ namespace Assignment_2.Classes
         public EstateManager(ListBox listBox) : base(listBox)
         {
         }
+
     }
 }

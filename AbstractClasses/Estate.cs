@@ -9,15 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Assignment_2.AbstractClasses
 {
-
+    [Serializable]
 
     /// <summary>
     /// Abstract class to represent an Estate, is inherited by...
     /// Authors Agnes Hägnestrand and Andreas Holm
     /// </summary>
-    abstract class  Estate : IEstate
+    public abstract class  Estate : IEstate
     {
         private string id;
         private Address address;

@@ -9,6 +9,8 @@ using Assignment.Enum;
 namespace Assignment_2.Classes
 {
 
+
+
     /// <summary>
     /// A class to represent an address
     /// <author> Agnes Hägnestrand and Andreas Holm</author>
@@ -21,6 +23,10 @@ namespace Assignment_2.Classes
         public Countries country;
         //private string uniqueAttribute;
 
+
+        public Address()
+        {
+        }
 
 
         /// <summary>
