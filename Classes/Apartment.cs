@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_2.Classes
 {
+    [Serializable]
 
     /// <summary>
     /// Represents an apartment, inherits the abstract class Estate

@@ -64,7 +64,7 @@ namespace Assignment_2.Classes
         {
             DeleteAll();
 
-            for(int i = 0; i < estates.Length; i ++)
+            for (int i = 0; i < estates.Length; i++)
             {
                 m_list.Add(estates[i]);
             }
@@ -101,7 +101,7 @@ namespace Assignment_2.Classes
         public void Delete(T type)
         {
             m_list.Remove(type);
-            
+
             //ids.Remove(id);
         }
 
@@ -124,52 +124,37 @@ namespace Assignment_2.Classes
 
 
         /// <summary>
-        /// Save to a file
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="legalForm"></param>
-        /// <param name="country"></param>
-        /// <param name="city"></param>
-        /// <param name="zipCode"></param>
-        /// <param name="street"></param>
-        /// <param name="category"></param>
-        /// <param name="type"></param>
-        /// <param name="text"></param>
-        /// <param name="typeAll"></param>
-        public void SaveFile(string id, LegalForms legalForm, Countries country, string city, string zipCode, string street, Category category, object type, string text, TypeAll typeAll)
-        {
-
-        }
-
-
-
-
-        /// <summary>
         /// Adds an item to the List and updates the ListBox
         /// TODO add false return???
         /// </summary>
         /// <param name="aType"></param>
         /// <returns></returns>
         public bool Add(T aType)
-        { 
+        {
             m_list.Add(aType);
             updateTxtWindow();
             return true;
         }
 
-        // Agnes har fixat
+        /// <summary>
+        /// Method to binary serialize the m_list and save to a given filepath
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public bool BinaryDeSerialize(string fileName)
         {
             bool Ok = true;
             FileStream fileObj = File.OpenRead(fileName);
+
             try
             {
                 BinaryFormatter binfor = new BinaryFormatter();
                 m_list = (List<T>)binfor.Deserialize(fileObj);
-                listBox1.Text = m_list.ToString();
-            }
-            catch (Exception e)
+                updateTxtWindow();
+
+            } catch(Exception e)
             {
+                MessageBox.Show(e.Message);
             }
 
             finally
@@ -179,7 +164,6 @@ namespace Assignment_2.Classes
 
             return Ok;
         }
-    
 
 
         /// <summary>
@@ -191,17 +175,18 @@ namespace Assignment_2.Classes
         {
             bool bOK = true;
             FileStream fileObj = null;
+
             try
             {
-                fileObj = new FileStream(fileName, FileMode.Create);
+                fileObj = File.Create(fileName);
                 BinaryFormatter binFormatter = new BinaryFormatter();
                 binFormatter.Serialize(fileObj, m_list);
             }
-            catch
+            catch(Exception e)
             {
+                MessageBox.Show(e.Message);
                 bOK = false;
             }
-
             finally
             {
                 if (fileObj != null)
@@ -243,10 +228,6 @@ namespace Assignment_2.Classes
             return bok;
         }
 
-
-
-
-
         // Ska användas vid change estate?
         public bool ChangeAt(T aType, int anIndex)
         {
@@ -263,7 +244,7 @@ namespace Assignment_2.Classes
         public bool CheckIndex(int index)
         {
             if (m_list.Count == 0) return false;
-            if(index >= 0 && index < m_list.Count) return true;
+            if (index >= 0 && index < m_list.Count) return true;
             else return false;
         }
 
@@ -285,7 +266,7 @@ namespace Assignment_2.Classes
         /// <returns></returns>
         public bool DeleteAt(int anIndex)
         {
-            if(anIndex != -1)
+            if (anIndex != -1)
             {
                 m_list.RemoveAt(anIndex);
                 updateTxtWindow();
@@ -317,7 +298,7 @@ namespace Assignment_2.Classes
         {
             string[] stringArr = new string[m_list.Count];
 
-            for (int i = 0; i < Count; i++) 
+            for (int i = 0; i < Count; i++)
             {
                 stringArr[i] = m_list[i].ToString();
             }
@@ -334,7 +315,7 @@ namespace Assignment_2.Classes
         {
             List<string> list = new List<string>();
 
-            foreach(T type in m_list)
+            foreach (T type in m_list)
             {
                 list.Add(type.ToString());
             }

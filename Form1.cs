@@ -330,9 +330,10 @@ namespace Assignment_2._0
             {
                 saveAsToolStripMenuItem_Click(sender, e);
             }
+            
             estateManager.BinarySerialize(fileName);
         }
-
+         
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -342,6 +343,7 @@ namespace Assignment_2._0
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     string fileName = sfd.FileName;
+
                     estateManager.BinarySerialize(fileName);
                 }
             }
@@ -453,16 +455,6 @@ namespace Assignment_2._0
             }
 
             return true;
-
-            /*
-            if (ids.Contains(id))
-            {
-                MessageBox.Show("The Id is already in our register, please choose an unique Id, to se all the Ids browse to the Search/Delete tab");
-            }
-
-            return !ids.Contains(id);
-
-            */
         }
 
 
@@ -489,12 +481,22 @@ namespace Assignment_2._0
             return true;
         }
 
+
+
+        /// <summary>
+        /// Metod called when pressing the open button in the file menu, 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// VAD HÄNDER OM MAN VÄLJER EN FIL SOM INTE GÅR ATT DESERIALISERA?
         private void openCtrlOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Dat files (.dat)|.dat|All files (.)|*.*", ValidateNames = true })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
+
+                    
                     string filename = ofd.FileName;
                     estateManager.BinaryDeSerialize(filename);
                 }

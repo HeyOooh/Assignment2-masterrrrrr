@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_2.AbstractClasses
 {
+    [Serializable]
     abstract class Commercial : Estate
     {
     }

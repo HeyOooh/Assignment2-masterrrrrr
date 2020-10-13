@@ -12,6 +12,7 @@ using Assignment_2.Classes;
 namespace Assignment_2.Classes
 {
 
+    [Serializable]
     /// <summary>
     /// A class to represent a House
     /// Authors Agnes Hägnestrand and Andreas Holm

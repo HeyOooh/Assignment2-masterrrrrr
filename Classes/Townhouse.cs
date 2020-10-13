@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 namespace Assignment_2.Classes
 {
 
+
+    [Serializable]
     /// <summary>
     /// Represents a townhouse, inherits the abstract class Estate
     /// <author> Agnes Hägnestrand and Andreas Holm</author>

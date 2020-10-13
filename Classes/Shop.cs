@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Assignment_2.Classes
 {
 
+    [Serializable]
     /// <summary>
     /// Represents a shop, inherits the abstract class Estate
     /// <author> Agnes Hägnestrand and Andreas Holm</author>

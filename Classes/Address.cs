@@ -10,6 +10,7 @@ namespace Assignment_2.Classes
 {
 
 
+    [Serializable]
 
     /// <summary>
     /// A class to represent an address
