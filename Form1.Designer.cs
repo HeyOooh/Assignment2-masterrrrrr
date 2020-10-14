@@ -83,6 +83,10 @@ namespace Assignment_2._0
             this.importFromXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitAltXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchLblCity = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnShowAll = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -453,6 +457,10 @@ namespace Assignment_2._0
             // 
             // tabSearchDelete
             // 
+            this.tabSearchDelete.Controls.Add(this.btnShowAll);
+            this.tabSearchDelete.Controls.Add(this.textBox1);
+            this.tabSearchDelete.Controls.Add(this.btnSearch);
+            this.tabSearchDelete.Controls.Add(this.searchLblCity);
             this.tabSearchDelete.Controls.Add(this.lblChangeEstate);
             this.tabSearchDelete.Controls.Add(this.btnChangeEstate);
             this.tabSearchDelete.Controls.Add(this.btnDelete);
@@ -520,12 +528,13 @@ namespace Assignment_2._0
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
+            this.listBox1.ItemHeight = 18;
             this.listBox1.Location = new System.Drawing.Point(21, 54);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(933, 404);
+            this.listBox1.Size = new System.Drawing.Size(933, 292);
             this.listBox1.TabIndex = 10;
             // 
             // lblGenerate
@@ -614,28 +623,28 @@ namespace Assignment_2._0
             // newCtrlNToolStripMenuItem
             // 
             this.newCtrlNToolStripMenuItem.Name = "newCtrlNToolStripMenuItem";
-            this.newCtrlNToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newCtrlNToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.newCtrlNToolStripMenuItem.Text = "New        Ctrl+N";
             this.newCtrlNToolStripMenuItem.Click += new System.EventHandler(this.newCtrlNToolStripMenuItem_Click);
             // 
             // openCtrlOToolStripMenuItem
             // 
             this.openCtrlOToolStripMenuItem.Name = "openCtrlOToolStripMenuItem";
-            this.openCtrlOToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openCtrlOToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.openCtrlOToolStripMenuItem.Text = "Open...    Ctrl+O";
             this.openCtrlOToolStripMenuItem.Click += new System.EventHandler(this.openCtrlOToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.saveToolStripMenuItem.Text = "Save         Ctrl+S";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.saveAsToolStripMenuItem.Text = "Save as..  ";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -645,7 +654,7 @@ namespace Assignment_2._0
             this.importFromXMLFileToolStripMenuItem,
             this.exportToXMLFileToolStripMenuItem});
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
             // importFromXMLFileToolStripMenuItem
@@ -664,8 +673,47 @@ namespace Assignment_2._0
             // exitAltXToolStripMenuItem
             // 
             this.exitAltXToolStripMenuItem.Name = "exitAltXToolStripMenuItem";
-            this.exitAltXToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitAltXToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
             this.exitAltXToolStripMenuItem.Text = "Exit          Alt+X";
+            // 
+            // searchLblCity
+            // 
+            this.searchLblCity.AutoSize = true;
+            this.searchLblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLblCity.Location = new System.Drawing.Point(33, 361);
+            this.searchLblCity.Name = "searchLblCity";
+            this.searchLblCity.Size = new System.Drawing.Size(247, 20);
+            this.searchLblCity.TabIndex = 13;
+            this.searchLblCity.Text = "Search for estates with city:";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSearch.Location = new System.Drawing.Point(37, 425);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(180, 45);
+            this.btnSearch.TabIndex = 14;
+            this.btnSearch.Text = "SEARCH";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(37, 392);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(180, 27);
+            this.textBox1.TabIndex = 15;
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnShowAll.Location = new System.Drawing.Point(571, 406);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(187, 41);
+            this.btnShowAll.TabIndex = 16;
+            this.btnShowAll.Text = "SHOW ALL";
+            this.btnShowAll.UseVisualStyleBackColor = false;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click_1);
             // 
             // GUI
             // 
@@ -762,6 +810,10 @@ namespace Assignment_2._0
         private System.Windows.Forms.Button btnChangeEstate;
         private System.Windows.Forms.Label lblChangeEstate;
         private System.Windows.Forms.Button btnDeleteAll;
+        private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label searchLblCity;
     }
 }
 

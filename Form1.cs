@@ -1,4 +1,5 @@
 ﻿using Assignment.Enum;
+using Assignment_2._0.Classes;
 using Assignment_2.AbstractClasses;
 using Assignment_2.Classes;
 using System;
@@ -27,6 +28,9 @@ namespace Assignment_2._0
 
         // Handler for the estates, contains a ArrayList for the estates and a HashSet with Ids for quick lookup
         private EstateManager estateManager;
+
+        // Handler for the dictionary that enables the serch estates with given a city
+        private DictionaryHandler dictionaryHandler = new DictionaryHandler();
 
         private bool saved = false;
         private string fileName;
@@ -143,7 +147,6 @@ namespace Assignment_2._0
             var type = comboBoxType.SelectedItem;
             string text = textBox6.Text;
             TypeAll typeAll = (TypeAll)comboBoxType.SelectedItem;
-            bool isModifyingEstate = false;
             string id = textId.Text;
 
             // Id must be unique and in a valid format and all the fields int the GUI must be filled´, else do not create an Estate
@@ -182,6 +185,7 @@ namespace Assignment_2._0
             }
 
             estateManager.Add(estate);
+            dictionaryHandler.Add(estate);
         }
 
 
@@ -251,7 +255,9 @@ namespace Assignment_2._0
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int indexToDelete = listBox1.SelectedIndex;
+            Estate estate = estateManager.GetAt(indexToDelete);
             estateManager.DeleteAt(indexToDelete);
+            dictionaryHandler.Delete(estate);
         }
 
 
@@ -263,6 +269,7 @@ namespace Assignment_2._0
         private void btnDeleteAll_Click(object sender, EventArgs e)
         {
             estateManager.DeleteAll();
+            dictionaryHandler.ClearAll();
         }
 
 
@@ -291,8 +298,15 @@ namespace Assignment_2._0
             estates[7] = new Villa("0008", "200", LegalForms.Ownership, null, address3, Category.Residential, TypeAll.Villa);
             estates[8] = new Villa("0009", "300", LegalForms.Rental, null, address3, Category.Residential, TypeAll.Villa);
 
+            estateManager.DeleteAll();
 
-            estateManager.genereateEstates(estates);
+            for (int i = 0; i < estates.Length; i++)
+            {
+                estateManager.Add(estates[i]);
+                dictionaryHandler.Add(estates[i]);
+            }
+
+            estateManager.updateTxtWindow();
         }
 
 
@@ -330,10 +344,10 @@ namespace Assignment_2._0
             {
                 saveAsToolStripMenuItem_Click(sender, e);
             }
-            
+
             estateManager.BinarySerialize(fileName);
         }
-         
+
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -378,8 +392,6 @@ namespace Assignment_2._0
                 btnSaveChanges.BackColor = Color.FromArgb(140, 135, 222);
                 btnCreateEstate.BackColor = Color.FromArgb(168, 165, 209);
                 btnChangeEstate.BackColor = Color.FromArgb(168, 165, 209);
-
-
                 tabControl.SelectedIndex = 0;
             }
 
@@ -496,7 +508,7 @@ namespace Assignment_2._0
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
 
-                    
+
                     string filename = ofd.FileName;
                     estateManager.BinaryDeSerialize(filename);
                 }
@@ -528,6 +540,12 @@ namespace Assignment_2._0
 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exportToXMLFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "XML files (.xml)|.xml|All files (.)|*.*", ValidateNames = true })
@@ -539,6 +557,27 @@ namespace Assignment_2._0
                     estateManager.XMLSerialize(fileName);
                 }
             }
+        }
+
+
+        private void btnShowAll_Click_1(object sender, EventArgs e)
+        {
+            estateManager.updateTxtWindow();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs  e)
+        {
+            string city = textBox1.Text;
+
+            List<Estate> list = dictionaryHandler.GetList(city);
+            if (list == null) return;
+
+            listBox1.Items.Clear();
+
+            foreach(Estate estate in list){
+                listBox1.Items.Add(estate);
+            }
+            
         }
     }
 }

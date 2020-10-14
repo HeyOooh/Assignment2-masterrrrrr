@@ -30,7 +30,6 @@ namespace Assignment_2.Classes
         // The RichTextBox component in the GUI
         private ListBox listBox1;
 
-
         public ListManager()
         {
             m_list = new List<T>();
@@ -66,7 +65,7 @@ namespace Assignment_2.Classes
 
             for (int i = 0; i < estates.Length; i++)
             {
-                m_list.Add(estates[i]);
+                Add(estates[i]);
             }
 
             updateTxtWindow();
@@ -132,6 +131,7 @@ namespace Assignment_2.Classes
         public bool Add(T aType)
         {
             m_list.Add(aType);
+            AddToDictionary(aType);
             updateTxtWindow();
             return true;
         }
@@ -202,17 +202,16 @@ namespace Assignment_2.Classes
         /// <returns></returns>
         public bool XMLSerialize(string fileName)
         {
-            bool bok = true;
-            //foreach (T e in m_list)
-            //    { e.
-            //    }
-            //    object ob = 
 
-            XmlSerializer serializer = new XmlSerializer(typeof(Estate));
+            Person person = new Person("Andreas", "Holm");
+            bool bok = true;
+
+
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Estate>));
             TextWriter writer = new StreamWriter(fileName);
             try
             {
-                serializer.Serialize(writer, m_list);
+                serializer.Serialize(writer, person);
             }
             catch
             {
@@ -225,6 +224,7 @@ namespace Assignment_2.Classes
                     writer.Close();
             }
 
+            MessageBox.Show(bok + "");
             return bok;
         }
 
@@ -284,9 +284,14 @@ namespace Assignment_2.Classes
         /// <param name="anIndex"></param>
         /// <returns></returns>
         public T GetAt(int anIndex)
-        {
-            // Här krashar det om man väljer det item som ligger under den nedersta ;/ 
-            return m_list.ElementAt(anIndex);
+        { 
+            if(anIndex != -1 && anIndex < m_list.Count)
+            {
+                return m_list.ElementAt(anIndex);
+            }else
+            {
+                return default(T);
+            }
         }
 
 
@@ -349,6 +354,119 @@ namespace Assignment_2.Classes
             textUnique.Text = "";
             textzip.Text = "";
             pictureBoxImage.Image = null;
+        }
+
+
+        /*
+         4.1    Use  a  Dictionary  collection  in  any  part  of  your  application  to  
+        handle  some  data  as a [key, value] pair wherever you find it applicable.  
+
+        You can for example let your Manager class provide a list of [EstateCategory, 
+        ListOfEstateObjects].  The categories can be any group of objects, e.g. 
+        [“Malmö”, All EstateObjects]. 4.2    With the Dictionary type, consider the following: 4.2.1    
+        Validate the Key whenever it is used as a method parameter. 
+        4.2.2    Write methods to Add, Change, Delete, and Get an item in the collection.
+         */
+
+        public void AddToDictionary(T type)
+        {
+            
+            // Om nyckel redan finns lägg till i listan med den nycket
+            // ANNARS skapa en nyckel med den staden och lägg till type sist i den listan
+        }
+
+        public void ChangeAtDictionary(int index, T type)
+        {
+            // oklart vad denna ska göra
+        }
+
+        public void DeleteFromDictionary(T type)
+        {
+            // ta bort type från dick med rätt city, om listan är tom, ta bort key helt från dick
+        }
+
+        public List<T> GetFromDictionary(string key)
+        {
+            // validate the key first to se if it exists in the dick
+            // returnera hela listan med den givna key 
+            return null;
+        }
+
+
+    }
+
+    [Serializable]
+    public class Person
+    {
+        private string m_firstName;
+        private string m_lastName;
+
+        /// <remarks>m_errMessage is not to be serialzed.</remarks>
+        [NonSerialized]
+        private string m_errMessage = null;
+
+        public Person()
+        {
+        }
+        /// <summary>
+        /// Consttructor with initial values for first and last names
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <remarks></remarks>
+        public Person(string firstName, string lastName)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+        }
+
+        /// <summary>
+        /// Property
+        /// </summary>
+        /// <value>Property related to m_firstName</value>
+        /// <returns>The value saved in m_firstName</returns>
+        /// <remarks>The value is a string with a new value for m_firstName</remarks>
+        public string FirstName
+        {
+            get { return m_firstName; }
+            set { m_firstName = value; }
+        }
+
+        /// <summary>
+        /// Property
+        /// </summary>
+        /// <value>Property related to m_lastName</value>
+        /// <returns>The value saved in m_lastName</returns>
+        /// <remarks>The value is a string with a new value for m_lastName</remarks>
+        public string LastName
+        {
+            get { return m_lastName; }
+            set { m_lastName = value; }
+        }
+
+        /// <summary>
+        /// Returns the full name, putting together first and last name separated
+        /// by a space.
+        /// </summary>
+        /// <value></value>
+        /// <returns></returns>
+        /// <remarks></remarks>
+        public string FullName
+        {
+            get
+            {
+                if ((string.IsNullOrEmpty(m_firstName) & string.IsNullOrEmpty(m_lastName)))
+                {
+                    return "The Invisible Person";
+                }
+
+                return FirstName + " " + LastName;
+            }
+        }
+
+        public override string ToString()
+        {
+            return FullName;
         }
     }
 }
