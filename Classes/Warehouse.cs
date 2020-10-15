@@ -73,7 +73,7 @@ namespace Assignment_2.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            string result = $"{Id}  --------  {LegalForm}  --------  {Category}  --------  {typeCom}  --------  {Address.Country}  --------  {Address.City}  --------  {Address.Street}  --------  {Address.ZIPCode}  -------- Squaremeters: {cubicMeterCapacity}";
+            string result = $"{Id} ----- {LegalForm} ----- {Category} ----- {typeCom} ----- {Address.Country} ----- {Address.City} ----- {Address.Street} ----- {Address.ZIPCode} ----- Squaremeters: {cubicMeterCapacity}";
             return result;
         }
     }

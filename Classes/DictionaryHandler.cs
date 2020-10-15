@@ -1,4 +1,5 @@
 ﻿using Assignment_2.AbstractClasses;
+using Assignment_2.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace Assignment_2._0.Classes
 
     /// <summary>
     /// Class to handle the dictionary
+    /// Authors Agnes Hägnestrand and Andreas Holm
     /// </summary>
     class DictionaryHandler
     {
 
         // Dictionary with key value pair to help implement a search function
         private Dictionary<string, List<Estate>> dictionary = new Dictionary<string, List<Estate>>();
-
 
         /// <summary>
         /// Add the given value to the Dictionary
@@ -59,10 +60,10 @@ namespace Assignment_2._0.Classes
         public void Delete(Estate estate)
         {
 
-            // FIX THE NULLPOINTER
+            // FIX THE NULLPOINTER maybebaby
             if(estate == null)
             {
-                MessageBox.Show("NULLPOINTER");
+                return;
             }
 
             string key = estate.Address.City;
@@ -87,7 +88,7 @@ namespace Assignment_2._0.Classes
             // Key validation check
             if(dictionary.ContainsKey(key)) return dictionary[key];
 
-            MessageBox.Show($"ERROR: The key: {key} do not exist in the dictionary");
+            MessageBox.Show($"The key: {key} do not exist in the dictionary");
             return null;
         }
 
@@ -97,7 +98,6 @@ namespace Assignment_2._0.Classes
         /// </summary>
         public void ClearAll()
         {
-            MessageBox.Show(dictionary.Count + "");
             dictionary.Clear();
         }
     }

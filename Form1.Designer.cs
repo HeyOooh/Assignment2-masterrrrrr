@@ -63,6 +63,11 @@ namespace Assignment_2._0
             this.lblLegalForms = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.tabSearchDelete = new System.Windows.Forms.TabPage();
+            this.lblShowAll = new System.Windows.Forms.Label();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.searchLblCity = new System.Windows.Forms.Label();
             this.lblChangeEstate = new System.Windows.Forms.Label();
             this.btnChangeEstate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -83,10 +88,6 @@ namespace Assignment_2._0
             this.importFromXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToXMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitAltXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchLblCity = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnShowAll = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -107,12 +108,12 @@ namespace Assignment_2._0
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabSearchDelete);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(0, 32);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl.Location = new System.Drawing.Point(0, 26);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl.Name = "tabControl";
             this.tabControl.Padding = new System.Drawing.Point(10, 5);
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(977, 636);
+            this.tabControl.Size = new System.Drawing.Size(733, 517);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -122,34 +123,34 @@ namespace Assignment_2._0
             this.tabPage1.Controls.Add(this.panel6);
             this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 36);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 33);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(969, 596);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(725, 480);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Create/ Change";
+            this.tabPage1.Text = "Create / Change";
             // 
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.btnCreateEstate);
-            this.panel7.Location = new System.Drawing.Point(473, 313);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Location = new System.Drawing.Point(355, 254);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(309, 101);
+            this.panel7.Size = new System.Drawing.Size(232, 82);
             this.panel7.TabIndex = 3;
             // 
             // btnCreateEstate
             // 
             this.btnCreateEstate.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnCreateEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateEstate.Location = new System.Drawing.Point(64, 20);
-            this.btnCreateEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCreateEstate.Location = new System.Drawing.Point(48, 16);
+            this.btnCreateEstate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreateEstate.Name = "btnCreateEstate";
-            this.btnCreateEstate.Size = new System.Drawing.Size(180, 50);
+            this.btnCreateEstate.Size = new System.Drawing.Size(135, 41);
             this.btnCreateEstate.TabIndex = 0;
-            this.btnCreateEstate.Text = "CREATE ESTATE";
+            this.btnCreateEstate.Text = "ADD ESTATE";
             this.btnCreateEstate.UseVisualStyleBackColor = false;
             this.btnCreateEstate.Click += new System.EventHandler(this.btnCreateEstate_Click);
             // 
@@ -157,20 +158,20 @@ namespace Assignment_2._0
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSaveChanges);
-            this.panel6.Location = new System.Drawing.Point(473, 434);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Location = new System.Drawing.Point(355, 353);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(309, 101);
+            this.panel6.Size = new System.Drawing.Size(232, 82);
             this.panel6.TabIndex = 2;
             // 
             // btnSaveChanges
             // 
             this.btnSaveChanges.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.Location = new System.Drawing.Point(64, 27);
-            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSaveChanges.Location = new System.Drawing.Point(48, 22);
+            this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Size = new System.Drawing.Size(180, 50);
+            this.btnSaveChanges.Size = new System.Drawing.Size(135, 41);
             this.btnSaveChanges.TabIndex = 4;
             this.btnSaveChanges.Text = "SAVE CHANGES";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
@@ -182,20 +183,20 @@ namespace Assignment_2._0
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.pictureBoxImage);
             this.panel5.Controls.Add(this.btnChooseImage);
-            this.panel5.Location = new System.Drawing.Point(473, 2);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Location = new System.Drawing.Point(355, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(309, 301);
+            this.panel5.Size = new System.Drawing.Size(232, 245);
             this.panel5.TabIndex = 1;
             // 
             // pictureBoxImage
             // 
             this.pictureBoxImage.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxImage.Location = new System.Drawing.Point(40, 18);
-            this.pictureBoxImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxImage.Location = new System.Drawing.Point(30, 15);
+            this.pictureBoxImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxImage.Name = "pictureBoxImage";
-            this.pictureBoxImage.Size = new System.Drawing.Size(222, 187);
+            this.pictureBoxImage.Size = new System.Drawing.Size(167, 152);
             this.pictureBoxImage.TabIndex = 1;
             this.pictureBoxImage.TabStop = false;
             // 
@@ -203,10 +204,10 @@ namespace Assignment_2._0
             // 
             this.btnChooseImage.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnChooseImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseImage.Location = new System.Drawing.Point(64, 215);
-            this.btnChooseImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChooseImage.Location = new System.Drawing.Point(48, 175);
+            this.btnChooseImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnChooseImage.Name = "btnChooseImage";
-            this.btnChooseImage.Size = new System.Drawing.Size(180, 71);
+            this.btnChooseImage.Size = new System.Drawing.Size(135, 58);
             this.btnChooseImage.TabIndex = 0;
             this.btnChooseImage.Text = "CHOOSE IMAGE (.jpg)";
             this.btnChooseImage.UseVisualStyleBackColor = false;
@@ -217,10 +218,10 @@ namespace Assignment_2._0
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(45, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(34, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(363, 531);
+            this.panel1.Size = new System.Drawing.Size(272, 431);
             this.panel1.TabIndex = 0;
             // 
             // panel4
@@ -232,18 +233,18 @@ namespace Assignment_2._0
             this.panel4.Controls.Add(this.lblDynamicTxt1);
             this.panel4.Controls.Add(this.lblType);
             this.panel4.Controls.Add(this.lblCategory);
-            this.panel4.Location = new System.Drawing.Point(1, 350);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Location = new System.Drawing.Point(1, 284);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(359, 179);
+            this.panel4.Size = new System.Drawing.Size(270, 146);
             this.panel4.TabIndex = 2;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(157, 103);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox6.Location = new System.Drawing.Point(118, 84);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(160, 27);
+            this.textBox6.Size = new System.Drawing.Size(121, 23);
             this.textBox6.TabIndex = 6;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
@@ -251,10 +252,10 @@ namespace Assignment_2._0
             // 
             this.comboBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(157, 74);
-            this.comboBoxType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxType.Location = new System.Drawing.Point(118, 60);
+            this.comboBoxType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(160, 28);
+            this.comboBoxType.Size = new System.Drawing.Size(121, 25);
             this.comboBoxType.TabIndex = 5;
             this.comboBoxType.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
@@ -262,10 +263,10 @@ namespace Assignment_2._0
             // 
             this.comboBoxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Location = new System.Drawing.Point(157, 44);
-            this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCategory.Location = new System.Drawing.Point(118, 36);
+            this.comboBoxCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(160, 28);
+            this.comboBoxCategory.Size = new System.Drawing.Size(121, 25);
             this.comboBoxCategory.TabIndex = 4;
             this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -273,9 +274,10 @@ namespace Assignment_2._0
             // 
             this.lblDynamicTxt1.AutoSize = true;
             this.lblDynamicTxt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDynamicTxt1.Location = new System.Drawing.Point(27, 106);
+            this.lblDynamicTxt1.Location = new System.Drawing.Point(20, 86);
+            this.lblDynamicTxt1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDynamicTxt1.Name = "lblDynamicTxt1";
-            this.lblDynamicTxt1.Size = new System.Drawing.Size(51, 20);
+            this.lblDynamicTxt1.Size = new System.Drawing.Size(43, 17);
             this.lblDynamicTxt1.TabIndex = 2;
             this.lblDynamicTxt1.Text = "-------";
             // 
@@ -283,9 +285,10 @@ namespace Assignment_2._0
             // 
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(27, 78);
+            this.lblType.Location = new System.Drawing.Point(20, 63);
+            this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(45, 20);
+            this.lblType.Size = new System.Drawing.Size(40, 17);
             this.lblType.TabIndex = 1;
             this.lblType.Text = "Type";
             // 
@@ -293,9 +296,10 @@ namespace Assignment_2._0
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(27, 48);
+            this.lblCategory.Location = new System.Drawing.Point(20, 39);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(76, 20);
+            this.lblCategory.Size = new System.Drawing.Size(65, 17);
             this.lblCategory.TabIndex = 0;
             this.lblCategory.Text = "Category";
             // 
@@ -311,54 +315,55 @@ namespace Assignment_2._0
             this.panel3.Controls.Add(this.lblCity);
             this.panel3.Controls.Add(this.lblCountry);
             this.panel3.Controls.Add(this.lblAddress);
-            this.panel3.Location = new System.Drawing.Point(1, 146);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(1, 119);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(359, 191);
+            this.panel3.Size = new System.Drawing.Size(270, 156);
             this.panel3.TabIndex = 1;
             // 
             // comboBoxCountry
             // 
             this.comboBoxCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCountry.FormattingEnabled = true;
-            this.comboBoxCountry.Location = new System.Drawing.Point(163, 44);
-            this.comboBoxCountry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCountry.Location = new System.Drawing.Point(122, 36);
+            this.comboBoxCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCountry.Name = "comboBoxCountry";
-            this.comboBoxCountry.Size = new System.Drawing.Size(160, 28);
+            this.comboBoxCountry.Size = new System.Drawing.Size(121, 25);
             this.comboBoxCountry.TabIndex = 8;
             this.comboBoxCountry.SelectedIndexChanged += new System.EventHandler(this.comboBoxCountry_SelectedIndexChanged);
             // 
             // textBoxCity
             // 
-            this.textBoxCity.Location = new System.Drawing.Point(163, 76);
-            this.textBoxCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxCity.Location = new System.Drawing.Point(122, 62);
+            this.textBoxCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.Size = new System.Drawing.Size(160, 27);
+            this.textBoxCity.Size = new System.Drawing.Size(121, 23);
             this.textBoxCity.TabIndex = 7;
             // 
             // textBoxZipCode
             // 
-            this.textBoxZipCode.Location = new System.Drawing.Point(163, 103);
-            this.textBoxZipCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxZipCode.Location = new System.Drawing.Point(122, 84);
+            this.textBoxZipCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxZipCode.Name = "textBoxZipCode";
-            this.textBoxZipCode.Size = new System.Drawing.Size(160, 27);
+            this.textBoxZipCode.Size = new System.Drawing.Size(121, 23);
             this.textBoxZipCode.TabIndex = 6;
             // 
             // textBoxStreet
             // 
-            this.textBoxStreet.Location = new System.Drawing.Point(163, 132);
-            this.textBoxStreet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxStreet.Location = new System.Drawing.Point(122, 107);
+            this.textBoxStreet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxStreet.Name = "textBoxStreet";
-            this.textBoxStreet.Size = new System.Drawing.Size(160, 27);
+            this.textBoxStreet.Size = new System.Drawing.Size(121, 23);
             this.textBoxStreet.TabIndex = 5;
             // 
             // lblStreet
             // 
             this.lblStreet.AutoSize = true;
             this.lblStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreet.Location = new System.Drawing.Point(31, 134);
+            this.lblStreet.Location = new System.Drawing.Point(23, 109);
+            this.lblStreet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(54, 20);
+            this.lblStreet.Size = new System.Drawing.Size(46, 17);
             this.lblStreet.TabIndex = 4;
             this.lblStreet.Text = "Street";
             // 
@@ -366,9 +371,10 @@ namespace Assignment_2._0
             // 
             this.lblZipCode.AutoSize = true;
             this.lblZipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZipCode.Location = new System.Drawing.Point(31, 106);
+            this.lblZipCode.Location = new System.Drawing.Point(23, 86);
+            this.lblZipCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblZipCode.Name = "lblZipCode";
-            this.lblZipCode.Size = new System.Drawing.Size(73, 20);
+            this.lblZipCode.Size = new System.Drawing.Size(64, 17);
             this.lblZipCode.TabIndex = 3;
             this.lblZipCode.Text = "Zip-code";
             // 
@@ -376,9 +382,10 @@ namespace Assignment_2._0
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.Location = new System.Drawing.Point(31, 78);
+            this.lblCity.Location = new System.Drawing.Point(23, 63);
+            this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(38, 20);
+            this.lblCity.Size = new System.Drawing.Size(31, 17);
             this.lblCity.TabIndex = 2;
             this.lblCity.Text = "City";
             // 
@@ -386,9 +393,10 @@ namespace Assignment_2._0
             // 
             this.lblCountry.AutoSize = true;
             this.lblCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.Location = new System.Drawing.Point(31, 48);
+            this.lblCountry.Location = new System.Drawing.Point(23, 39);
+            this.lblCountry.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(67, 20);
+            this.lblCountry.Size = new System.Drawing.Size(57, 17);
             this.lblCountry.TabIndex = 1;
             this.lblCountry.Text = "Country";
             // 
@@ -396,9 +404,10 @@ namespace Assignment_2._0
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(133, 9);
+            this.lblAddress.Location = new System.Drawing.Point(100, 7);
+            this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(78, 20);
+            this.lblAddress.Size = new System.Drawing.Size(67, 17);
             this.lblAddress.TabIndex = 0;
             this.lblAddress.Text = "Address";
             // 
@@ -410,9 +419,9 @@ namespace Assignment_2._0
             this.panel2.Controls.Add(this.lblLegalForms);
             this.panel2.Controls.Add(this.lblId);
             this.panel2.Location = new System.Drawing.Point(1, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(359, 130);
+            this.panel2.Size = new System.Drawing.Size(270, 106);
             this.panel2.TabIndex = 0;
             // 
             // comboBoxLegalForm
@@ -420,28 +429,29 @@ namespace Assignment_2._0
             this.comboBoxLegalForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxLegalForm.FormattingEnabled = true;
             this.comboBoxLegalForm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxLegalForm.Location = new System.Drawing.Point(156, 73);
-            this.comboBoxLegalForm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxLegalForm.Location = new System.Drawing.Point(117, 59);
+            this.comboBoxLegalForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxLegalForm.Name = "comboBoxLegalForm";
-            this.comboBoxLegalForm.Size = new System.Drawing.Size(160, 28);
+            this.comboBoxLegalForm.Size = new System.Drawing.Size(121, 25);
             this.comboBoxLegalForm.TabIndex = 3;
             this.comboBoxLegalForm.SelectedIndexChanged += new System.EventHandler(this.comboBoxLegalForm_SelectedIndexChanged);
             // 
             // textId
             // 
-            this.textId.Location = new System.Drawing.Point(156, 38);
-            this.textId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textId.Location = new System.Drawing.Point(117, 31);
+            this.textId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textId.Name = "textId";
-            this.textId.Size = new System.Drawing.Size(160, 27);
+            this.textId.Size = new System.Drawing.Size(121, 23);
             this.textId.TabIndex = 2;
             // 
             // lblLegalForms
             // 
             this.lblLegalForms.AutoSize = true;
             this.lblLegalForms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegalForms.Location = new System.Drawing.Point(19, 78);
+            this.lblLegalForms.Location = new System.Drawing.Point(14, 63);
+            this.lblLegalForms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLegalForms.Name = "lblLegalForms";
-            this.lblLegalForms.Size = new System.Drawing.Size(89, 20);
+            this.lblLegalForms.Size = new System.Drawing.Size(75, 17);
             this.lblLegalForms.TabIndex = 1;
             this.lblLegalForms.Text = "Legal form";
             // 
@@ -449,14 +459,16 @@ namespace Assignment_2._0
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(19, 39);
+            this.lblId.Location = new System.Drawing.Point(14, 32);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(118, 20);
+            this.lblId.Size = new System.Drawing.Size(100, 17);
             this.lblId.TabIndex = 0;
             this.lblId.Text = "Id (4 numbers)";
             // 
             // tabSearchDelete
             // 
+            this.tabSearchDelete.Controls.Add(this.lblShowAll);
             this.tabSearchDelete.Controls.Add(this.btnShowAll);
             this.tabSearchDelete.Controls.Add(this.textBox1);
             this.tabSearchDelete.Controls.Add(this.btnSearch);
@@ -471,22 +483,77 @@ namespace Assignment_2._0
             this.tabSearchDelete.Controls.Add(this.btnGenerateEstates);
             this.tabSearchDelete.Controls.Add(this.btnDeleteAll);
             this.tabSearchDelete.Controls.Add(this.label1);
-            this.tabSearchDelete.Location = new System.Drawing.Point(4, 36);
-            this.tabSearchDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabSearchDelete.Location = new System.Drawing.Point(4, 33);
+            this.tabSearchDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabSearchDelete.Name = "tabSearchDelete";
-            this.tabSearchDelete.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabSearchDelete.Size = new System.Drawing.Size(969, 596);
+            this.tabSearchDelete.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabSearchDelete.Size = new System.Drawing.Size(725, 480);
             this.tabSearchDelete.TabIndex = 1;
-            this.tabSearchDelete.Text = "Delete";
+            this.tabSearchDelete.Text = "Delete / Search";
             this.tabSearchDelete.UseVisualStyleBackColor = true;
+            // 
+            // lblShowAll
+            // 
+            this.lblShowAll.AutoSize = true;
+            this.lblShowAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShowAll.Location = new System.Drawing.Point(373, 299);
+            this.lblShowAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblShowAll.Name = "lblShowAll";
+            this.lblShowAll.Size = new System.Drawing.Size(122, 13);
+            this.lblShowAll.TabIndex = 17;
+            this.lblShowAll.Text = "Show all the estates";
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnShowAll.Location = new System.Drawing.Point(358, 323);
+            this.btnShowAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(140, 33);
+            this.btnShowAll.TabIndex = 16;
+            this.btnShowAll.Text = "SHOW ALL";
+            this.btnShowAll.UseVisualStyleBackColor = false;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(16, 411);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(136, 23);
+            this.textBox1.TabIndex = 15;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSearch.Location = new System.Drawing.Point(16, 438);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(135, 37);
+            this.btnSearch.TabIndex = 14;
+            this.btnSearch.Text = "SEARCH";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // searchLblCity
+            // 
+            this.searchLblCity.AutoSize = true;
+            this.searchLblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLblCity.Location = new System.Drawing.Point(13, 386);
+            this.searchLblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.searchLblCity.Name = "searchLblCity";
+            this.searchLblCity.Size = new System.Drawing.Size(166, 13);
+            this.searchLblCity.TabIndex = 13;
+            this.searchLblCity.Text = "Search for estates with city:";
             // 
             // lblChangeEstate
             // 
             this.lblChangeEstate.AutoSize = true;
             this.lblChangeEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeEstate.Location = new System.Drawing.Point(481, 513);
+            this.lblChangeEstate.Location = new System.Drawing.Point(361, 417);
+            this.lblChangeEstate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChangeEstate.Name = "lblChangeEstate";
-            this.lblChangeEstate.Size = new System.Drawing.Size(198, 17);
+            this.lblChangeEstate.Size = new System.Drawing.Size(155, 13);
             this.lblChangeEstate.TabIndex = 12;
             this.lblChangeEstate.Text = "Change highlighted estate";
             // 
@@ -494,12 +561,12 @@ namespace Assignment_2._0
             // 
             this.btnChangeEstate.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnChangeEstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeEstate.Location = new System.Drawing.Point(484, 541);
-            this.btnChangeEstate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChangeEstate.Location = new System.Drawing.Point(363, 440);
+            this.btnChangeEstate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnChangeEstate.Name = "btnChangeEstate";
-            this.btnChangeEstate.Size = new System.Drawing.Size(180, 45);
+            this.btnChangeEstate.Size = new System.Drawing.Size(135, 37);
             this.btnChangeEstate.TabIndex = 11;
-            this.btnChangeEstate.Text = "CHANGE ESTATE";
+            this.btnChangeEstate.Text = "MODIFY ESTATE";
             this.btnChangeEstate.UseVisualStyleBackColor = false;
             this.btnChangeEstate.Click += new System.EventHandler(this.btnChangeEstate_Click);
             // 
@@ -507,10 +574,10 @@ namespace Assignment_2._0
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(235, 541);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(176, 440);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(180, 45);
+            this.btnDelete.Size = new System.Drawing.Size(135, 37);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -520,9 +587,10 @@ namespace Assignment_2._0
             // 
             this.lblDeleteEstates.AutoSize = true;
             this.lblDeleteEstates.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteEstates.Location = new System.Drawing.Point(232, 513);
+            this.lblDeleteEstates.Location = new System.Drawing.Point(174, 417);
+            this.lblDeleteEstates.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeleteEstates.Name = "lblDeleteEstates";
-            this.lblDeleteEstates.Size = new System.Drawing.Size(190, 17);
+            this.lblDeleteEstates.Size = new System.Drawing.Size(149, 13);
             this.lblDeleteEstates.TabIndex = 0;
             this.lblDeleteEstates.Text = "Delete highlighted estate";
             // 
@@ -530,20 +598,20 @@ namespace Assignment_2._0
             // 
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(21, 54);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(16, 44);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(933, 292);
+            this.listBox1.Size = new System.Drawing.Size(701, 229);
             this.listBox1.TabIndex = 10;
             // 
             // lblGenerate
             // 
             this.lblGenerate.AutoSize = true;
             this.lblGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenerate.Location = new System.Drawing.Point(694, 496);
+            this.lblGenerate.Location = new System.Drawing.Point(520, 403);
+            this.lblGenerate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGenerate.Name = "lblGenerate";
-            this.lblGenerate.Size = new System.Drawing.Size(241, 34);
+            this.lblGenerate.Size = new System.Drawing.Size(187, 26);
             this.lblGenerate.TabIndex = 9;
             this.lblGenerate.Text = "Generate estates \r\n(Will remove previously estates)";
             this.lblGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -552,9 +620,10 @@ namespace Assignment_2._0
             // 
             this.lblRemoveAll.AutoSize = true;
             this.lblRemoveAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemoveAll.Location = new System.Drawing.Point(34, 513);
+            this.lblRemoveAll.Location = new System.Drawing.Point(199, 299);
+            this.lblRemoveAll.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRemoveAll.Name = "lblRemoveAll";
-            this.lblRemoveAll.Size = new System.Drawing.Size(146, 17);
+            this.lblRemoveAll.Size = new System.Drawing.Size(115, 13);
             this.lblRemoveAll.TabIndex = 8;
             this.lblRemoveAll.Text = "Remove all estates";
             // 
@@ -562,10 +631,10 @@ namespace Assignment_2._0
             // 
             this.btnGenerateEstates.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGenerateEstates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateEstates.Location = new System.Drawing.Point(733, 541);
-            this.btnGenerateEstates.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGenerateEstates.Location = new System.Drawing.Point(550, 440);
+            this.btnGenerateEstates.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGenerateEstates.Name = "btnGenerateEstates";
-            this.btnGenerateEstates.Size = new System.Drawing.Size(180, 45);
+            this.btnGenerateEstates.Size = new System.Drawing.Size(135, 37);
             this.btnGenerateEstates.TabIndex = 6;
             this.btnGenerateEstates.Text = "GENERATE";
             this.btnGenerateEstates.UseVisualStyleBackColor = false;
@@ -575,10 +644,10 @@ namespace Assignment_2._0
             // 
             this.btnDeleteAll.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnDeleteAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAll.Location = new System.Drawing.Point(21, 542);
-            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteAll.Location = new System.Drawing.Point(189, 323);
+            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(180, 45);
+            this.btnDeleteAll.Size = new System.Drawing.Size(135, 37);
             this.btnDeleteAll.TabIndex = 5;
             this.btnDeleteAll.Text = "REMOVE ALL";
             this.btnDeleteAll.UseVisualStyleBackColor = false;
@@ -588,9 +657,10 @@ namespace Assignment_2._0
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 14);
+            this.label1.Location = new System.Drawing.Point(26, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(798, 18);
+            this.label1.Size = new System.Drawing.Size(668, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "ID ----- Legal form ----- Category ----- Type ----- Country ----- City ----- Stre" +
     "et ----- Zip ----- UniqueAttribute";
@@ -602,7 +672,8 @@ namespace Assignment_2._0
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(737, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -616,35 +687,35 @@ namespace Assignment_2._0
             this.xMLToolStripMenuItem,
             this.exitAltXToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // newCtrlNToolStripMenuItem
             // 
             this.newCtrlNToolStripMenuItem.Name = "newCtrlNToolStripMenuItem";
-            this.newCtrlNToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.newCtrlNToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.newCtrlNToolStripMenuItem.Text = "New        Ctrl+N";
             this.newCtrlNToolStripMenuItem.Click += new System.EventHandler(this.newCtrlNToolStripMenuItem_Click);
             // 
             // openCtrlOToolStripMenuItem
             // 
             this.openCtrlOToolStripMenuItem.Name = "openCtrlOToolStripMenuItem";
-            this.openCtrlOToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.openCtrlOToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.openCtrlOToolStripMenuItem.Text = "Open...    Ctrl+O";
             this.openCtrlOToolStripMenuItem.Click += new System.EventHandler(this.openCtrlOToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.saveToolStripMenuItem.Text = "Save         Ctrl+S";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.saveAsToolStripMenuItem.Text = "Save as..  ";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -654,75 +725,37 @@ namespace Assignment_2._0
             this.importFromXMLFileToolStripMenuItem,
             this.exportToXMLFileToolStripMenuItem});
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
             // importFromXMLFileToolStripMenuItem
             // 
+            this.importFromXMLFileToolStripMenuItem.Enabled = false;
             this.importFromXMLFileToolStripMenuItem.Name = "importFromXMLFileToolStripMenuItem";
-            this.importFromXMLFileToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.importFromXMLFileToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.importFromXMLFileToolStripMenuItem.Text = "Import from XML File";
             // 
             // exportToXMLFileToolStripMenuItem
             // 
             this.exportToXMLFileToolStripMenuItem.Name = "exportToXMLFileToolStripMenuItem";
-            this.exportToXMLFileToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.exportToXMLFileToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.exportToXMLFileToolStripMenuItem.Text = "Export to XML File";
             this.exportToXMLFileToolStripMenuItem.Click += new System.EventHandler(this.exportToXMLFileToolStripMenuItem_Click);
             // 
             // exitAltXToolStripMenuItem
             // 
             this.exitAltXToolStripMenuItem.Name = "exitAltXToolStripMenuItem";
-            this.exitAltXToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.exitAltXToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.exitAltXToolStripMenuItem.Text = "Exit          Alt+X";
-            // 
-            // searchLblCity
-            // 
-            this.searchLblCity.AutoSize = true;
-            this.searchLblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLblCity.Location = new System.Drawing.Point(33, 361);
-            this.searchLblCity.Name = "searchLblCity";
-            this.searchLblCity.Size = new System.Drawing.Size(247, 20);
-            this.searchLblCity.TabIndex = 13;
-            this.searchLblCity.Text = "Search for estates with city:";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSearch.Location = new System.Drawing.Point(37, 425);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(180, 45);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.Text = "SEARCH";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(37, 392);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 27);
-            this.textBox1.TabIndex = 15;
-            // 
-            // btnShowAll
-            // 
-            this.btnShowAll.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnShowAll.Location = new System.Drawing.Point(571, 406);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(187, 41);
-            this.btnShowAll.TabIndex = 16;
-            this.btnShowAll.Text = "SHOW ALL";
-            this.btnShowAll.UseVisualStyleBackColor = false;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click_1);
             // 
             // GUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 664);
+            this.ClientSize = new System.Drawing.Size(737, 540);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GUI";
             this.Text = "AganEstates";
             this.tabControl.ResumeLayout(false);
@@ -814,6 +847,7 @@ namespace Assignment_2._0
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label searchLblCity;
+        private System.Windows.Forms.Label lblShowAll;
     }
 }
 

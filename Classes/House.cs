@@ -73,7 +73,7 @@ namespace Assignment_2.Classes
 
         public override string ToString()
         {
-            string result =  $"{Id}  --------  {LegalForm}  --------  {Category}  --------  {typeRes}  --------  {Address.Country}  --------  {Address.City}  --------  {Address.Street}  --------  {Address.ZIPCode}  -------- Color: {color}";
+            string result =  $"{Id} ----- {LegalForm} ----- {Category} ----- {typeRes} ----- {Address.Country} ----- {Address.City} ----- {Address.Street} ----- {Address.ZIPCode} ----- Color: {color}";
             return result;
         }
     

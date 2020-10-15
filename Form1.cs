@@ -35,6 +35,9 @@ namespace Assignment_2._0
         private bool saved = false;
         private string fileName;
 
+        // Index that keeps that of the index of the chosen estate
+        private int indexToChange;
+
         /// <summary>
         /// Constructor to the components
         /// </summary>
@@ -58,6 +61,8 @@ namespace Assignment_2._0
             btnDelete.BackColor = Color.FromArgb(140, 135, 222);
             btnChangeEstate.BackColor = Color.FromArgb(140, 135, 222);
             btnGenerateEstates.BackColor = Color.FromArgb(140, 135, 222);
+            btnSearch.BackColor = Color.FromArgb(140, 135, 222);
+            btnShowAll.BackColor = Color.FromArgb(140, 135, 222);
         }
 
 
@@ -184,7 +189,7 @@ namespace Assignment_2._0
                     break;
             }
 
-            estateManager.Add(estate);
+            estateManager.Add(indexToChange, estate);
             dictionaryHandler.Add(estate);
         }
 
@@ -302,7 +307,7 @@ namespace Assignment_2._0
 
             for (int i = 0; i < estates.Length; i++)
             {
-                estateManager.Add(estates[i]);
+                estateManager.Add(i, estates[i]);
                 dictionaryHandler.Add(estates[i]);
             }
 
@@ -321,18 +326,26 @@ namespace Assignment_2._0
             {
                 return;
             }
+            textId.ReadOnly = false;
 
+            btnDeleteAll.Enabled = true;
             btnSaveChanges.Enabled = false;
             btnChangeEstate.Enabled = true;
             btnCreateEstate.Enabled = true;
-            textId.ReadOnly = false;
-            btnDeleteAll.Enabled = true;
             btnGenerateEstates.Enabled = true;
             btnDelete.Enabled = true;
+            btnShowAll.Enabled = true;
+            btnSearch.Enabled = true;
 
             btnSaveChanges.BackColor = Color.FromArgb(168, 165, 209);
             btnChangeEstate.BackColor = Color.FromArgb(140, 135, 222);
             btnCreateEstate.BackColor = Color.FromArgb(140, 135, 222);
+            btnDeleteAll.BackColor = Color.FromArgb(140, 135, 222);
+            btnGenerateEstates.BackColor = Color.FromArgb(140, 135, 222);
+            btnSearch.BackColor = Color.FromArgb(140, 135, 222);
+            btnShowAll.BackColor = Color.FromArgb(140, 135, 222);
+            btnDelete.BackColor = Color.FromArgb(140, 135, 222);
+
 
             estateManager.DeleteAt(listBox1.SelectedIndex);
             createEstate();
@@ -348,6 +361,12 @@ namespace Assignment_2._0
             estateManager.BinarySerialize(fileName);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -374,9 +393,9 @@ namespace Assignment_2._0
         private void btnChangeEstate_Click(object sender, EventArgs e)
         {
 
-            int indexToChange = listBox1.SelectedIndex;
+            indexToChange = listBox1.SelectedIndex;
 
-            if (indexToChange != -1)
+            if (indexToChange != -1 && estateManager.getListLength() != 0)
             {
                 UpdateEstatesFields(indexToChange);
                 comboBox4_SelectedIndexChanged(sender, e);
@@ -389,9 +408,17 @@ namespace Assignment_2._0
                 btnDeleteAll.Enabled = false;
                 btnGenerateEstates.Enabled = false;
                 btnDelete.Enabled = false;
+                btnSearch.Enabled = false;
+                btnShowAll.Enabled = false;
+
                 btnSaveChanges.BackColor = Color.FromArgb(140, 135, 222);
                 btnCreateEstate.BackColor = Color.FromArgb(168, 165, 209);
-                btnChangeEstate.BackColor = Color.FromArgb(168, 165, 209);
+                btnDeleteAll.BackColor = Color.FromArgb(168, 165, 209);
+                btnGenerateEstates.BackColor = Color.FromArgb(168, 165, 209);
+                btnSearch.BackColor = Color.FromArgb(168, 165, 209);
+                btnShowAll.BackColor = Color.FromArgb(168, 165, 209);
+                btnDelete.BackColor = Color.FromArgb(168, 165, 209);
+
                 tabControl.SelectedIndex = 0;
             }
 

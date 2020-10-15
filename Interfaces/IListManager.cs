@@ -30,7 +30,7 @@ interface IListManager<T>
     /// </summary>
     /// <param name="aType">A type.</param>
     /// <returns>True if successful, false otherwise.</returns>
-    bool Add(T aType);
+    bool Add(int index, T aType);
 
     /// <summary>
     /// Remove an object from the collection m_list at
